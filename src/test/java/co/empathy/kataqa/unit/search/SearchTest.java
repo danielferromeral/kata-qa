@@ -1,6 +1,4 @@
-package co.empathy.kataqa.search;
-
-import static org.junit.jupiter.api.Assertions.*;
+package co.empathy.kataqa.unit.search;
 
 import org.junit.jupiter.api.Test;
 

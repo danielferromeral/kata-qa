@@ -1,10 +1,8 @@
-package co.empathy.kataqa.log;
-
-import static org.junit.jupiter.api.Assertions.*;
+package co.empathy.kataqa.integration.log;
 
 import org.junit.jupiter.api.Test;
 
-class LoggerTest {
+class LoggerIT {
 
     @Test
     void getInstance() {

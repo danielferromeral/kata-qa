@@ -1,10 +1,8 @@
-package co.empathy.kataqa.index;
-
-import static org.junit.jupiter.api.Assertions.*;
+package co.empathy.kataqa.integration.index;
 
 import org.junit.jupiter.api.Test;
 
-class IndexTest {
+class IndexIT {
 
     @Test
     void initialize() {

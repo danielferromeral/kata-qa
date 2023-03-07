@@ -1,10 +1,8 @@
-package co.empathy.kataqa.db;
-
-import static org.junit.jupiter.api.Assertions.*;
+package co.empathy.kataqa.integration.db;
 
 import org.junit.jupiter.api.Test;
 
-class DatabaseTest {
+class DatabaseIT {
 
     @Test
     void getProducts() {
