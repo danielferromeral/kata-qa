@@ -1,0 +1,29 @@
+initialize src/main/resources/database.csv
+-1 | red sofa | couch | red | m
+-1 | green sofa | couch | green | m
+-1 | yellow sofa | couch | yellow | m
+-1 | sofa | couch |  | m
+-1 | green lantern | lantern | green | s
+-1 | yellow submarine | submarine | yellow | l
+-1 | purple seat | seat | purple | m
+-1 | green seat | seat | green | m
+-1 | yellow seat | seat | yellow | m
+-1 | black panther | panther | black | m
+-1 | pink panther | panther | pink | m
+-1 | green arrow | arrow | green | s
+-1 | round table | table |  | 
+-1 | square table | table |  | 
+-1 | red right hand | hand | red | s
+-1 | black saber | saber | black | s
+-1 | red car | car | red | m
+-1 | yellow car | car | red | m
+-1 | black panther | panther | black | m
+Name black panther already inside the database in iteration 18
+upodate src/main/resources/database_update.csv
+index src/main/resources/database_update.csv
+-1 | yellow submarine | submarine | yellow | 
+-1 | round table | table | brown | m
+-1 | square table | table | brown | m
+-1 | new chair | chair |  | s
+-1 | blue sofa | couch | blue | m
+exit src/main/resources/log.txt
