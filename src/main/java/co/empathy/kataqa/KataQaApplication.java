@@ -2,7 +2,7 @@ package co.empathy.kataqa;
 
 
 import co.empathy.kataqa.db.Database;
-import co.empathy.kataqa.db.model.Product;
+import co.empathy.kataqa.db.model.ProductDTO;
 import co.empathy.kataqa.index.Index;
 import co.empathy.kataqa.search.Search;
 import java.io.IOException;
@@ -74,13 +74,13 @@ public class KataQaApplication {
         System.out.println(s);
     }
 
-    private static void show(Product p) {
+    private static void show(ProductDTO p) {
         show(p.toString());
     }
 
-    private static void show(List<Product> productList) {
-        show("Total hits " + productList.size());
-        for (Product p : productList) {
+    private static void show(List<ProductDTO> productDTOList) {
+        show("Total hits " + productDTOList.size());
+        for (ProductDTO p : productDTOList) {
             show(p);
         }
     }

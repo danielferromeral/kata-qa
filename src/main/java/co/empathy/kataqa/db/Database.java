@@ -1,32 +1,32 @@
 package co.empathy.kataqa.db;
 
-import co.empathy.kataqa.db.model.Product;
+import co.empathy.kataqa.db.model.ProductDTO;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class Database {
 
-    private final HashMap<Integer, Product> products = new HashMap<>();
+    private final HashMap<Integer, ProductDTO> products = new HashMap<>();
 
-    public List<Product> getProducts() {
+    public List<ProductDTO> getProducts() {
         return new ArrayList<>(products.values());
     }
 
     public List<String> getNames() {
         List<String> ret = new ArrayList<>();
-        for (Product p : products.values()) {
+        for (ProductDTO p : products.values()) {
             ret.add(p.getName());
         }
         return ret;
     }
 
-    public Product getProduct(int index) {
+    public ProductDTO getProduct(int index) {
         return products.get(index);
     }
 
-    public void addProduct(Product product) {
-        products.put(product.getId(), product);
+    public void addProduct(ProductDTO productDTO) {
+        products.put(productDTO.getId(), productDTO);
     }
 
     public void deleteProduct(int id) {

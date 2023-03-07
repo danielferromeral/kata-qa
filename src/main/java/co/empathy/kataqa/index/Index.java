@@ -1,7 +1,7 @@
 package co.empathy.kataqa.index;
 
 import co.empathy.kataqa.db.Database;
-import co.empathy.kataqa.db.model.Product;
+import co.empathy.kataqa.db.model.ProductDTO;
 import co.empathy.kataqa.log.Logger;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -24,7 +24,7 @@ public class Index {
         logger.log("initialize " + path);
 
         Database db = new Database();
-        List<Product> products = new ArrayList<>();
+        List<ProductDTO> productDTOS = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;
@@ -33,13 +33,13 @@ public class Index {
                 while (values.size() != 4) {
                     values.add("");
                 }
-                products.add(new Product(-1, values.get(0).toLowerCase(), values.get(1).toLowerCase(), values.get(2).toLowerCase(),
+                productDTOS.add(new ProductDTO(-1, values.get(0).toLowerCase(), values.get(1).toLowerCase(), values.get(2).toLowerCase(),
                     values.get(3).toLowerCase()));
             }
         }
         int j = 0;
         int i = 0;
-        for (Product p : products) {
+        for (ProductDTO p : productDTOS) {
             logger.log(p.toString());
             String valid = validate(p, j);
             if (valid.equals("OK")) {
@@ -62,7 +62,7 @@ public class Index {
     public static void index(Database db, String path) throws IOException {
         logger.log("index " + path);
 
-        List<Product> products = new ArrayList<>();
+        List<ProductDTO> productDTOS = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;
@@ -71,14 +71,14 @@ public class Index {
                 while (values.size() != 4) {
                     values.add("");
                 }
-                products.add(new Product(-1, values.get(0).toLowerCase(), values.get(1).toLowerCase(), values.get(2).toLowerCase(),
+                productDTOS.add(new ProductDTO(-1, values.get(0).toLowerCase(), values.get(1).toLowerCase(), values.get(2).toLowerCase(),
                     values.get(3).toLowerCase()));
             }
         }
 
         int j = 0;
         int i = 0;
-        for (Product p : db.getProducts()) {
+        for (ProductDTO p : db.getProducts()) {
             if (i == p.getId()) {
                 i++;
             } else {
@@ -86,7 +86,7 @@ public class Index {
             }
         }
 
-        for (Product p : products) {
+        for (ProductDTO p : productDTOS) {
             logger.log(p.toString());
             String valid = validate(p, j);
             if (valid.equals("OK")) {
@@ -95,7 +95,7 @@ public class Index {
                     db.addProduct(p);
                     i++;
                 } else {
-                    for (Product pDb : db.getProducts()) {
+                    for (ProductDTO pDb : db.getProducts()) {
                         if (pDb.getName().equals(p.getName())) {
                             p.setId(pDb.getId());
                             db.addProduct(p);
@@ -109,19 +109,19 @@ public class Index {
         }
     }
 
-    protected static String validate(Product product, int i) {
-        if (product.getName().isEmpty() || product.getName().isBlank()) {
+    protected static String validate(ProductDTO productDTO, int i) {
+        if (productDTO.getName().isEmpty() || productDTO.getName().isBlank()) {
             return "Missing Name in iteration " + i;
         }
-        if (product.getType().isEmpty() || product.getType().isBlank()) {
+        if (productDTO.getType().isEmpty() || productDTO.getType().isBlank()) {
             return "Missing Type in iteration " + i;
         }
-        if ((product.getType().equals(VALID_TYPE_SEAT) || product.getType().equals(VALID_TYPE_COUCH)) && (product.getColor().isEmpty()
-            || product.getColor().isBlank())) {
-            return "Missing Color with Type " + product.getType() + "in iteration " + i;
+        if ((productDTO.getType().equals(VALID_TYPE_SEAT) || productDTO.getType().equals(VALID_TYPE_COUCH)) && (productDTO.getColor().isEmpty()
+            || productDTO.getColor().isBlank())) {
+            return "Missing Color with Type " + productDTO.getType() + "in iteration " + i;
         }
-        if (!product.getSize().equals(VALID_SIZE_S) && !product.getSize().equals(VALID_SIZE_M) && !product.getSize().equals(VALID_SIZE_L)) {
-            product.setSize(VALID_SIZE_M);
+        if (!productDTO.getSize().equals(VALID_SIZE_S) && !productDTO.getSize().equals(VALID_SIZE_M) && !productDTO.getSize().equals(VALID_SIZE_L)) {
+            productDTO.setSize(VALID_SIZE_M);
         }
         return "OK";
     }

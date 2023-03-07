@@ -1,6 +1,6 @@
 package co.empathy.kataqa.db.model;
 
-public class Product {
+public class ProductDTO {
 
     private int id;
     private String name;
@@ -8,7 +8,7 @@ public class Product {
     private String color;
     private String size;
 
-    public Product(int id, String name, String type, String color, String size) {
+    public ProductDTO(int id, String name, String type, String color, String size) {
         setId(id);
         setName(name);
         setType(type);

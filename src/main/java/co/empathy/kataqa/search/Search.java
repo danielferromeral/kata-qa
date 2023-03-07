@@ -1,7 +1,7 @@
 package co.empathy.kataqa.search;
 
 import co.empathy.kataqa.db.Database;
-import co.empathy.kataqa.db.model.Product;
+import co.empathy.kataqa.db.model.ProductDTO;
 import co.empathy.kataqa.index.Index;
 import co.empathy.kataqa.log.Logger;
 import java.io.File;
@@ -21,22 +21,22 @@ public class Search {
         this.db = db;
     }
 
-    public List<Product> search(String... input) {
+    public List<ProductDTO> search(String... input) {
         StringBuilder log = new StringBuilder("search");
         for (String s : input) {
             log.append(" ").append(s);
         }
         logger.log(log.toString());
-        List<Product> ret = db.getProducts();
+        List<ProductDTO> ret = db.getProducts();
         if (input.length == 1) {
             return ret;
         }
         return filter(ret, input[1], input[2], input[3]);
     }
 
-    protected List<Product> filter(List<Product> list, String field, String operator, String value) {
-        List<Product> ret = new ArrayList<>();
-        for (Product p : list) {
+    protected List<ProductDTO> filter(List<ProductDTO> list, String field, String operator, String value) {
+        List<ProductDTO> ret = new ArrayList<>();
+        for (ProductDTO p : list) {
             switch (field) {
                 case "name":
                     if (operator.equals("=")) {
@@ -89,7 +89,7 @@ public class Search {
         return ret;
     }
 
-    public Product skusearch(String id) {
+    public ProductDTO skusearch(String id) {
         logger.log("skusearch " + id);
         return db.getProduct(Integer.parseInt(id));
     }
@@ -108,7 +108,7 @@ public class Search {
         logger.log("save " + path);
         new File(path).createNewFile();
         FileWriter myWriter = new FileWriter(path);
-        for (Product p : db.getProducts()) {
+        for (ProductDTO p : db.getProducts()) {
             myWriter.write(p.toCSV() + "\n");
         }
         myWriter.close();
