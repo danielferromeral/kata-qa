@@ -1,5 +1,16 @@
 # Kata QA
 
+## Objetive
+
+The objetive of this project is to create test for the different classes of the project, to cover the code and find the bugs made.
+The test have the objetive to use the different capabilities of the Junit 5.
+
+The classes that should be covered has already created test clases, with some methods. This methods are orientative and the user can modify anything from inside the test part, but cannot edit nothing from the source code.
+
+The problem does also support integration tests. All the test that include IT in their name will be execute in the integration test part.
+
+In order to run all the test, we need to run ```mvn verify```.
+
 ## Domain
 
 We want to create a search engine for a furniture shop.
