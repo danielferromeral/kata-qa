@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>co.empathy</groupId>
 	<artifactId>kata-qa</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>kata-qa</name>
 	<properties>
 		<java.version>17</java.version>
@@ -18,28 +18,13 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.testcontainers</groupId>
-			<artifactId>junit-jupiter</artifactId>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.3</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<artifactId>mysql</artifactId>
-			<groupId>org.testcontainers</groupId>
-			<scope>test</scope>
-		</dependency>
-
 	</dependencies>
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.testcontainers</groupId>
-				<artifactId>testcontainers-bom</artifactId>
-				<version>${testcontainers.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+
 	<build>
 		<plugins>
 			<plugin>
