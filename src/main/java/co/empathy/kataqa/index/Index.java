@@ -109,7 +109,7 @@ public class Index {
         }
     }
 
-    protected static String validate(ProductDTO productDTO, int i) {
+    public static String validate(ProductDTO productDTO, int i) {
         if (productDTO.getName().isEmpty() || productDTO.getName().isBlank()) {
             return "Missing Name in iteration " + i;
         }
