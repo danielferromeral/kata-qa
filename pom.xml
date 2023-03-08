@@ -8,13 +8,12 @@
 	<name>kata-qa</name>
 	<properties>
 		<java.version>17</java.version>
-		<testcontainers.version>1.17.6</testcontainers.version>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
-			<version>5.5.2</version>
+			<version>5.7.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
