@@ -34,7 +34,7 @@ public class Search {
         return filter(ret, input[1], input[2], input[3]);
     }
 
-    protected List<ProductDTO> filter(List<ProductDTO> list, String field, String operator, String value) {
+    public List<ProductDTO> filter(List<ProductDTO> list, String field, String operator, String value) {
         List<ProductDTO> ret = new ArrayList<>();
         for (ProductDTO p : list) {
             switch (field) {
